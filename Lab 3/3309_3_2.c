@@ -10,7 +10,7 @@ void writeData(const char* filename, int* data, int size);
 void sortAndMeasure(const char* input_file, const char* output_file);
 
 int main() {
-    int option;
+    int option_309;
 
     while (1) {
         printf("MAIN MENU (QUICK SORT)\n");
@@ -19,9 +19,9 @@ int main() {
         printf("3. Random Data\n");
         printf("4. ERROR (EXIT)\n");
         printf("Enter option: ");
-        scanf("%d", &option);
+        scanf("%d", &option_309);
 
-        switch (option) {
+        switch (option_309) {
             case 1:
                 sortAndMeasure("inAsc.dat", "outQuickAsc.dat");
                 break;
@@ -53,29 +53,29 @@ void quickSort(int arr[], int low, int high, int* comparisons, int* best_case, i
 }
 
 int partition(int arr[], int low, int high, int* comparisons, int* best_case, int* worst_case) {
-    int pivot = arr[high];
+    int pivot_309 = arr[high];
     int i = (low - 1);
 
     for (int j = low; j <= high - 1; j++) {
         (*comparisons)++;
-        if (arr[j] < pivot) {
+        if (arr[j] < pivot_309) {
             i++;
-            int temp = arr[i];
+            int temp_309 = arr[i];
             arr[i] = arr[j];
-            arr[j] = temp;
+            arr[j] = temp_309;
         }
     }
-    int temp = arr[i + 1];
+    int temp_309 = arr[i + 1];
     arr[i + 1] = arr[high];
-    arr[high] = temp;
+    arr[high] = temp_309;
 
-    int partition_size_left = i - low + 1;
-    int partition_size_right = high - (i + 1);
+    int partition_size_left_309 = i - low + 1;
+    int partition_size_right_309 = high - (i + 1);
 
-    if (partition_size_left == 0 || partition_size_right == 0) {
+    if (partition_size_left_309 == 0 || partition_size_right_309 == 0) {
         (*worst_case)++;
     }
-    if (partition_size_left <= (high - low) / 2 && partition_size_right <= (high - low) / 2) {
+    if (partition_size_left_309 <= (high - low) / 2 && partition_size_right_309 <= (high - low) / 2) {
         (*best_case)++;
     }
 
@@ -89,22 +89,22 @@ void readData(const char* filename, int** data, int* size) {
         exit(1);
     }
 
-    int count = 0;
-    int capacity = 10;
-    int* tempData = (int*)malloc(capacity * sizeof(int));
+    int count_309 = 0;
+    int capacity_309 = 10;
+    int* tempData_309 = (int*)malloc(capacity_309 * sizeof(int));
 
-    while (fscanf(file, "%d", &tempData[count]) != EOF) {
-        count++;
-        if (count >= capacity) {
-            capacity *= 2;
-            tempData = (int*)realloc(tempData, capacity * sizeof(int));
+    while (fscanf(file, "%d", &tempData_309[count_309]) != EOF) {
+        count_309++;
+        if (count_309 >= capacity_309) {
+            capacity_309 *= 2;
+            tempData_309 = (int*)realloc(tempData_309, capacity_309 * sizeof(int));
         }
     }
 
     fclose(file);
 
-    *data = tempData;
-    *size = count;
+    *data = tempData_309;
+    *size = count_309;
 }
 
 void writeData(const char* filename, int* data, int size) {

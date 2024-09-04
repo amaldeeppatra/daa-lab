@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Function prototypes
 void mergeSort(int arr[], int l, int r, int* comparisons);
 void merge(int arr[], int l, int m, int r, int* comparisons);
 void readData(const char* filename, int** data, int* size);
@@ -10,7 +9,7 @@ void writeData(const char* filename, int* data, int size);
 void sortAndMeasure(const char* input_file, const char* output_file);
 
 int main() {
-    int option;
+    int option_309;
 
     while (1) {
         printf("MAIN MENU (MERGE SORT)\n");
@@ -19,9 +18,9 @@ int main() {
         printf("3. Random Data\n");
         printf("4. ERROR (EXIT)\n");
         printf("Enter option: ");
-        scanf("%d", &option);
+        scanf("%d", &option_309);
 
-        switch (option) {
+        switch (option_309) {
             case 1:
                 sortAndMeasure("inAsc.dat", "outMergeAsc.dat");
                 break;
@@ -106,22 +105,22 @@ void readData(const char* filename, int** data, int* size) {
         exit(1);
     }
 
-    int count = 0;
-    int capacity = 10;
-    int* tempData = (int*)malloc(capacity * sizeof(int));
+    int count_309 = 0;
+    int capacity_309 = 10;
+    int* tempData_309 = (int*)malloc(capacity_309 * sizeof(int));
 
-    while (fscanf(file, "%d", &tempData[count]) != EOF) {
-        count++;
-        if (count >= capacity) {
-            capacity *= 2;
-            tempData = (int*)realloc(tempData, capacity * sizeof(int));
+    while (fscanf(file, "%d", &tempData_309[count_309]) != EOF) {
+        count_309++;
+        if (count_309 >= capacity_309) {
+            capacity_309 *= 2;
+            tempData_309 = (int*)realloc(tempData_309, capacity_309 * sizeof(int));
         }
     }
 
     fclose(file);
 
-    *data = tempData;
-    *size = count;
+    *data = tempData_309;
+    *size = count_309;
 }
 
 void writeData(const char* filename, int* data, int size) {
